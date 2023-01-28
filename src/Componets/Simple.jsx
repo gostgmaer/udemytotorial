@@ -18,6 +18,11 @@ const Simple = () => {
     setText(e.target.value);
     text.length <3 ? setValidMessage("Valid") : setValidMessage("Invalid");
   };
+  const DUMMY_TODOS = [
+    'Learn React',
+    'Practice React',
+    'Profit!'
+];
  
 
   return (
@@ -41,8 +46,21 @@ const Simple = () => {
       <div className="counterBlock"><p id="counter">{count}</p>
         <button onClick={()=>setcount(count+1)}>Increment</button></div>
       {}
+      <div>
+      <ul>
+         {
+DUMMY_TODOS.map(item=><li key={item}>{item}</li>)
+         }
+        </ul>
+      </div>
     </div>
   );
 };
 
 export default Simple;
+
+
+
+
+
+

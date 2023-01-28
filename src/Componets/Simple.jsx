@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import './styles.scss'
 
 const Simple = () => {
   const array = Array.from(Array(10).keys());
@@ -16,9 +17,15 @@ const Simple = () => {
 
   const textChangehandler = (e) => {
     setText(e.target.value);
-    text.length <3 ? setValidMessage("Valid") : setValidMessage("Invalid");
+    text.length < 3 ? setValidMessage("Valid") : setValidMessage("Invalid");
   };
- 
+  const DUMMY_TODOS = [
+    'Learn React',
+    'Practice React',
+    'Profit!'
+  ];
+  const [isDelete, setIsDelete] = useState(false);
+
 
   return (
     <div>
@@ -39,10 +46,33 @@ const Simple = () => {
         <p>{validMessage} message</p>
       </div>
       <div className="counterBlock"><p id="counter">{count}</p>
-        <button onClick={()=>setcount(count+1)}>Increment</button></div>
-      {}
+        <button onClick={() => setcount(count + 1)}>Increment</button></div>
+      { }
+      <div>
+        <ul>
+          {
+            DUMMY_TODOS.map(item => <li key={item}>{item}</li>)
+          }
+        </ul>
+      </div>
+
+      <div>
+     {isDelete?  '':<div id="alert">
+          <h2>Are you sure?</h2>
+          <p>These changes can't be reverted!</p>
+          <button>Proceed</button>
+        </div>}
+        <button onClick={()=>setIsDelete(true)}>Delete</button>
+      </div>
+
     </div>
   );
 };
 
 export default Simple;
+
+
+
+
+
+

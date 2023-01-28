@@ -1,0 +1,107 @@
+.delete{
+    svg{
+        width: 30px;
+        height: 30px;
+        color: rgb(255, 0, 0);
+        border-radius: 50%;
+        border: 2px solid rgb(255, 0, 0);
+        cursor: pointer;
+    }
+}
+
+
+
+
+  
+  .FilterExpense{
+    list-style: none;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+    .expenses-filter {
+        width: 100%;
+        padding: 5px 20px;
+        background-color: white;
+        color: black;
+        margin-bottom: 10px;
+      }
+
+    .expenses-filter__control {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1rem 0;
+      }
+      
+      .expenses-filter label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+      
+      .expenses-filter select {
+        font: inherit;
+        padding: 0.5rem 3rem;
+        font-weight: bold;
+        border-radius: 6px;
+      }
+  }
+
+.add{
+  list-style: none;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+ // background-color: white;
+  
+
+  .ExpenseForm{
+    padding: 5px 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+   // gap: 10px;
+    flex-direction: column;
+    h2{
+      width: 100%;
+    }
+    .form{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .formGroupLg{
+        button{
+          padding: 5px 10px;
+        }
+      }
+      input{
+        
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+
+      }
+      
+   
+
+    }
+
+  }
+}
+ 
+
+.AssignmentExpense{
+  min-height: 100vh;
+  .Expenses{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

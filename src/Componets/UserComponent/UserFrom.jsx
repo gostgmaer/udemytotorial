@@ -3,19 +3,21 @@ import { v4 as uuidv4 } from "uuid";
 import { useUserContext } from "./userContext";
 
 const UserFrom = () => {
-    const { users, setUsers, isOpen, itemHistory, setItemHistory, setIsOpen } = useUserContext();
+    const { users, setUsers, error, setError, isOpen, itemHistory, setItemHistory, setIsOpen } = useUserContext();
 
     const [email, setemail] = useState("");
     const [name, setName] = useState("");
     const [age, setAge] = useState('');
-    const [error, setError] = useState("");
+
 
     const addToUserList = () => {
         if (email === "" || name === "" || age === "") {
             setError("all Fields are mandatory");
+            setIsOpen(true)
 
         } else if (users?.find((item) => item.email === email)) {
             setError("Email address already Present");
+            setIsOpen(true)
 
         } else {
             const obj = {
@@ -32,6 +34,7 @@ const UserFrom = () => {
             setemail('')
 
             setError('')
+            setIsOpen(false)
         }
     };
     const UpdateUserList = () => {
@@ -76,8 +79,8 @@ const UserFrom = () => {
                         onChange={(e) => setName(e.target.value)}
                         className="form-control"
                         placeholder="Name"
-                        id="exampleInputEmail1"
-                        aria-describedby="emailHelp"
+                        id="name"
+                      
                     />
                 </div>
                 <div className="mb-3">
@@ -87,7 +90,7 @@ const UserFrom = () => {
                         onChange={(e) => setemail(e.target.value)}
                         placeholder="Email Address"
                         className="form-control"
-                        id="exampleInputPassword1"
+                        id="exampleInputEmail1"
                     />
                 </div>
                 <div className="mb-3">
@@ -98,7 +101,7 @@ const UserFrom = () => {
                         onChange={(e) => setAge(e.target.valueAsNumber)}
                         placeholder="Your Age"
                         className="form-control"
-                        id="exampleInputPassword1"
+                   
                     />
                 </div>
 

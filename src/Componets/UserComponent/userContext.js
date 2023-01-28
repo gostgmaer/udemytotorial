@@ -8,14 +8,17 @@ const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [itemHistory, setItemHistory] = useState(null);
+  const [error, setError] = useState("");
 
   return (
     <UserContext.Provider
       value={{
         users,
         setUsers,
-        isOpen,
-        setIsOpen,itemHistory, setItemHistory
+        isOpen,error, setError,
+        setIsOpen,
+        itemHistory,
+        setItemHistory,
       }}>
       {children}
     </UserContext.Provider>

@@ -2,6 +2,7 @@ import moment from "moment";
 import React, { useState } from "react";
 import { data } from "../../Assets/StaticData/ExpenseList";
 import { useGlobalContext } from "../../Context/GlobalCOntext";
+import LineChartWithLabel from "./Charts";
 import ExpenseForm from "./ExpenseForm";
 import ExpenseListItem from "./ExpenseListItem";
 import FilterExpense from "./FilterExpense";
@@ -23,6 +24,7 @@ const AssignmentExpense = () => {
 
         </div>
         <FilterExpense></FilterExpense>
+     
         <ul>
           {(getYear
             ? expense?.filter(

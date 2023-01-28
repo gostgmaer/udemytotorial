@@ -1,0 +1,51 @@
+.User {
+    .userWrapper {
+        display: flex;
+        align-items: center;
+
+        flex-direction: column;
+        margin-top: 20px;
+        gap: 20px;
+
+        .UserFrom {
+            width: 50%;
+
+            form {}
+        }
+
+        .addedUser {
+            width: 50%;
+
+            ul {
+                width: 100%;
+
+                .UserListItem {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .itemBlock {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 10px;
+
+                    }
+
+                    .icons {
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+
+                        svg {
+                            width: 30px;
+                            height: 30px;
+                            border: 2px solid gray;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

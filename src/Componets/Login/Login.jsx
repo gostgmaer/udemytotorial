@@ -4,26 +4,61 @@ import "./login.scss";
 const Login = () => {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
+  const [passValid, setPassValid] = useState({});
+  const [emailValid, setEmailValid] = useState({});
+  const [formValid, setFormValid] = useState(true);
   const [isloggedIn, setIsloggedIn] = useState(false);
-  const strodUserInfo=localStorage.getItem('isLoggedIn')
+
+  const strodUserInfo = localStorage.getItem("isLoggedIn");
 
   useEffect(() => {
-    if (strodUserInfo === '1') {
-        setIsloggedIn(true)
-        
-      }
-  
-    
+    if (strodUserInfo === "1") {
+      setIsloggedIn(true);
+    }
   }, []);
+
+  const validEmail = () => {
+    if (user.includes("@")) {
+      setEmailValid({});
+    } else {
+      setEmailValid({ borderColor: "red" });
+    }
+  };
+  const validPass = () => {
+    if (pass.length >= 6) {
+      setPassValid({});
+    } else {
+      setPassValid({ borderColor: "red" });
+    }
+  };
+  const validFormData = () => {
+    setFormValid(pass.length >= 6 && user.includes("@"));
+  };
+
+  useEffect(() => {
+    validEmail();
+    validPass();
+  }, [pass, user]);
+  useEffect(() => {
+    const identify = setTimeout(() => {
+      validFormData();
+      console.log("executing");
+    }, 1000);
+    return () => {
+      console.log("CleanUp");
+      clearTimeout(identify);
+    };
+  }, [pass, user]);
+
   const loginHandler = (e) => {
     e.preventDefault();
     console.log(e);
-    localStorage.setItem('isLoggedIn','1')
+    localStorage.setItem("isLoggedIn", "1");
     setIsloggedIn(true);
   };
   const logoutHandler = (e) => {
     e.preventDefault();
-    localStorage.removeItem('isLoggedIn')
+    localStorage.removeItem("isLoggedIn");
     setIsloggedIn(false);
   };
   return (
@@ -46,12 +81,14 @@ const Login = () => {
                 placeholder="email"
                 className="form-control"
                 id="exampleInputEmail1"
+                style={emailValid}
               />
             </div>
             <div className="mb-3">
               <input
                 type="password"
                 value={pass}
+                style={passValid}
                 onChange={(e) => setPass(e.target.value)}
                 placeholder="**********"
                 className="form-control"
@@ -62,6 +99,7 @@ const Login = () => {
             <button
               type="submit"
               onClick={loginHandler}
+              disabled={!formValid}
               className="btn btn-primary">
               Login
             </button>

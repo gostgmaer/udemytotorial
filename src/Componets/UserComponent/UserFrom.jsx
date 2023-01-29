@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { useGlobalContext } from "../../Context/GlobalCOntext";
 import { useUserContext } from "./userContext";
 
 const UserFrom = () => {
+    const { modalhandler } = useGlobalContext()
     const { users, setUsers, error, setError, isOpen, itemHistory, setItemHistory, setIsOpen } = useUserContext();
 
     const [email, setemail] = useState("");
@@ -13,11 +15,11 @@ const UserFrom = () => {
     const addToUserList = () => {
         if (email === "" || name === "" || age === "") {
             setError("all Fields are mandatory");
-            setIsOpen(true)
+            modalhandler()
 
         } else if (users?.find((item) => item.email === email)) {
             setError("Email address already Present");
-            setIsOpen(true)
+            modalhandler()
 
         } else {
             const obj = {
@@ -34,7 +36,7 @@ const UserFrom = () => {
             setemail('')
 
             setError('')
-            setIsOpen(false)
+           
         }
     };
     const UpdateUserList = () => {

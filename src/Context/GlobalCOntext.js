@@ -12,11 +12,18 @@ const AppProvider = ({ children }) => {
   const [expanseHistory, setExpanseHistory] = useState([]);
   const [expense, setExpense] = useState(data);
   const [getYear, setGetYear] = useState(null);
+  const [modal, setModal] = useState(false);
+
+
+  const modalhandler =()=>{
+    setModal(!modal)
+  }
+
 
   return (
     <AppContext.Provider
       value={{
-        expense, setExpense,expanseHistory, setExpanseHistory,getYear, setGetYear
+        expense, setExpense,expanseHistory, setExpanseHistory,getYear, setGetYear,modalhandler,modal
       }}
     >
       {children}

@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { useGlobalContext } from "../Context/GlobalCOntext";
+import ReactPortal from "./ReactPortals/ReactPortal";
 import './styles.scss'
+import UserElement from "./UserComponent/User";
 
 const Simple = () => {
+  const { modalhandler, modal } = useGlobalContext()
   const array = Array.from(Array(10).keys());
   console.log(array);
   function transformToObjects(numberArray) {
@@ -57,14 +61,15 @@ const Simple = () => {
       </div>
 
       <div>
-     {isDelete?  '':<div id="alert">
+        {isDelete ? '' : <div id="alert">
           <h2>Are you sure?</h2>
           <p>These changes can't be reverted!</p>
           <button>Proceed</button>
         </div>}
-        <button onClick={()=>setIsDelete(true)}>Delete</button>
+        <button onClick={() => setIsDelete(true)}>Delete</button>
+        <div className="modalOpen"><button onClick={modalhandler}>Modal</button></div>
       </div>
-
+      <ReactPortal ClassName={'simpleClass'} ModalContent={UserElement}  ></ReactPortal>
     </div>
   );
 };

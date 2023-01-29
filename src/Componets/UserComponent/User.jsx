@@ -5,6 +5,7 @@ import './styles.scss'
 import UserListItem from './UserListItem'
 import UserWrapper from './UserWrapper'
 import ErrorModal from './ErrorModal'
+import ReactPortal from '../ReactPortals/ReactPortal'
 
 const UserElement = () => {
 
@@ -12,7 +13,8 @@ const UserElement = () => {
         <UserProvider>
             <div className='User'>
                 <UserWrapper></UserWrapper>
-               
+                <ReactPortal ClassName={'userFormError'} ModalContent={ErrorModal}   ></ReactPortal>
+
             </div></UserProvider>
     )
 }

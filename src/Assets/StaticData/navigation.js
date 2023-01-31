@@ -23,4 +23,10 @@ export const navigation =[{
     "name": "New Expenses",
     "url": "new-expense",
     "image": "http://dummyimage.com/250x.png/ff4444/ffffff"
+  },
+  {
+    "id": 6,
+    "name": "New Login",
+    "url": "/login-page",
+    "image": "http://dummyimage.com/250x.png/ff4444/ffffff"
   }]

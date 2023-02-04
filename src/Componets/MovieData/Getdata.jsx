@@ -6,7 +6,7 @@ import ShowList from "./ShowList";
 
 const Getdata = () => {
     const [movieList, setMovieList] = useState(null);
-    const { httpCallError } = useGlobalContext()
+    const { httpCallError,setHttpCallError } = useGlobalContext()
 
 
     //   const GetDataFromFirebase = async () => {
@@ -30,9 +30,16 @@ const Getdata = () => {
         let param = {
         };
         cleanParam(param)
-        const res = await InvokeAPI(`movies.json`, "get", {}, {}, param);
+        try {
+            const res = await InvokeAPI(`movies.json`, "get", {}, {}, param);
 
-        setMovieList(Object.entries(res))
+            setMovieList(Object.entries(res))
+        } catch (error) {
+            console.log(error.message)
+            setHttpCallError(error.message)
+            
+        }
+       
     };
 
 

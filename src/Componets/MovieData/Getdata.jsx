@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useGlobalContext } from "../../Context/GlobalCOntext";
+import InvokeAPI, { cleanParam } from "../../Hooks/apiCallHttp";
 import useHttp from "../../Hooks/httpHooks";
 import ShowList from "./ShowList";
 
 const Getdata = () => {
     const [movieList, setMovieList] = useState(null);
+    const { httpCallError } = useGlobalContext()
+
 
     //   const GetDataFromFirebase = async () => {
     //     const res = await fetch(
@@ -22,15 +26,28 @@ const Getdata = () => {
     //     setMovieList(await Object.entries(data));
     //   };
 
-    const param = {
-        endPoint: 'movies.json'
-    }
+    const getData = async () => {
+        let param = {
+        };
+        cleanParam(param)
+        const res = await InvokeAPI(`movies.json`, "get", {}, {}, param);
 
-    const { data, error, loading, sendRequest } = useHttp(param)
+        setMovieList(Object.entries(res))
+    };
 
+
+    // const param = {
+    //     endPoint: 'movies.json'
+    // }
+
+    // const { data, error, loading, sendRequest } = useHttp(param)
+
+    // useEffect(() => {
+    //     data && setMovieList(Object.entries(data))
+    // }, [data]);
     useEffect(() => {
-        data && setMovieList(Object.entries(data))
-    }, [data]);
+        getData()
+    }, []);
 
     return (
         <div className="Getdata bg-light py-3">
@@ -39,13 +56,13 @@ const Getdata = () => {
                     <button
                         type="button"
                         name=""
-                        onClick={sendRequest}
+                        onClick={getData}
                         id=""
                         className="btn btn-primary btn-lg btn-block">
                         Fetch Movie
                     </button>
                 </div>
-                {error ? <div className="error">{error}</div> : <div className="col-12 m-auto">
+                {httpCallError ? <div className="error">{httpCallError}</div> : <div className="col-12 m-auto">
                     {movieList?.map((item) => (
                         <ShowList key={item["0"]} item={item["1"]}></ShowList>
                     ))}

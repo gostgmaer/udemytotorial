@@ -1,19 +1,16 @@
-import React from 'react'
+import React from "react";
 
 const ShowList = ({ item }) => {
-    return (
-        <div className="list-group m-2">
-            <a href="/" className="list-group-item text-start list-group-item-action" aria-current="true">
-                <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">{item.name}</h5>
-                    <small>{item.date}</small>
-                </div>
-                <p className="mb-1">{item.desc}</p>
-                <small>And some small print.</small>
-            </a>
+  return (
+    <div className="list-group m-2 list-group-item text-start list-group-item-action">
+      <div className="d-flex w-100 justify-content-between">
+        <h5 className="mb-1">{item.name}</h5>
+        <small>{item.date}</small>
+      </div>
+      <p className="mb-1">{item.desc}</p>
+      <small>And some small print.</small>
+    </div>
+  );
+};
 
-        </div>
-    )
-}
-
-export default ShowList
+export default ShowList;

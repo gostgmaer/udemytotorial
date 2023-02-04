@@ -10,6 +10,8 @@ const AppProvider = ({ children }) => {
   const [expense, setExpense] = useState(data);
   const [getYear, setGetYear] = useState(null);
   const [modal, setModal] = useState(false);
+  const [error, setError] = useState(null);
+  const [httpCallError, setHttpCallError] = useState(null);
 
   const modalhandler = () => {
     setModal(!modal);
@@ -22,7 +24,7 @@ const AppProvider = ({ children }) => {
         setExpense,
         expanseHistory,
         setExpanseHistory,
-        getYear,
+        getYear,error, setError,httpCallError, setHttpCallError,
         setGetYear,
         modalhandler,
         modal,

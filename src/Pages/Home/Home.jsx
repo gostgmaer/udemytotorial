@@ -1,6 +1,7 @@
 import React from 'react'
 import { navigation } from '../../Assets/StaticData/navigation'
 import ListElements from './ListElements'
+import './home.scss'
 
 const Home = () => {
   return (

@@ -2,6 +2,7 @@ import { async } from "@firebase/util";
 import { logDOM } from "@testing-library/react";
 import React, { useEffect, useState } from "react";
 import { useHref } from "react-router-dom";
+import useHttp from "../../Hooks/httpHooks";
 
 
 
@@ -10,28 +11,37 @@ const Form = () => {
     const [name, setName] = useState('');
     const [desc, setDesc] = useState('');
     const [date, setDate] = useState('');
+
     useEffect(() => {
-        
+
         setMovie({ name: name, desc: desc, date: date })
-    
-    }, [name,desc,date]);
 
-    const postDatatoFirebase = async () => {
-      
-      if(movie!==null){
-        const res = await fetch(
-            "https://react-tutorials-be6d1-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json",
-            {
-                method: 'POST',
-                body: JSON.stringify(movie),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
+    }, [name, desc, date]);
 
-        console.log(await  res.json());
-      }
-    };
+    const param = {
+        endPoint: 'movies.json', method: 'post', body: JSON.stringify(movie)
+    }
+
+
+    const { data, error, loading, sendRequest } = useHttp(param)
+
+    // const postDatatoFirebase = async () => {
+
+    //   if(movie!==null){
+    //     const res = await fetch(
+    //         "https://react-tutorials-be6d1-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json",
+    //         {
+    //             method: 'POST',
+    //             body: JSON.stringify(movie),
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             }
+    //         });
+
+    //     console.log(await  res.json());
+    //   }
+    // };
+
 
     return (
         <div className="m-auto">
@@ -55,12 +65,12 @@ const Form = () => {
                         rows={5}></textarea>
                 </div>
                 <div className="col-12">
-                    <input type="date" className="form-control" value={date} onChange={(e) => setDate(e.target.value)} id="date" />
+                    <input type={'datetime-local'} className="form-control" value={date} onChange={(e) => setDate(e.target.value)} id="date" />
                 </div>
 
                 <div className="col-12">
                     <button
-                        onClick={postDatatoFirebase}
+                        onClick={sendRequest}
                         type="submit"
                         className="btn btn-primary">
                         Add Movie

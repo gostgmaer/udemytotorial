@@ -23,9 +23,8 @@ const Getdata = () => {
     //   };
 
     const param = {
-        endPoint: 'movies.json', method: 'get'
+        endPoint: 'movies.json'
     }
-
 
     const { data, error, loading, sendRequest } = useHttp(param)
 

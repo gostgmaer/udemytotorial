@@ -25,6 +25,12 @@ export const navigation =[{
     "image": "http://dummyimage.com/250x.png/ff4444/ffffff"
   },
   {
+    "id": 7,
+    "name": "Page Update",
+    "url": "pageupdate",
+    "image": "http://dummyimage.com/250x.png/ff4444/ffffff"
+  },
+  {
     "id": 6,
     "name": "New Login",
     "url": "/login-page",

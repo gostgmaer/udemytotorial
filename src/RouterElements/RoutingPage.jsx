@@ -8,6 +8,7 @@ import Simple from '../Componets/Simple';
 import Expenses from '../Componets/SimpleExpalses/Expenses';
 import UpdateInAction from '../Componets/UpdateInAction/UpdateInAction';
 import UserElement from '../Componets/UserComponent/User';
+import ValidationForm from '../Componets/Validation/ValidationForm';
 import Home from '../Pages/Home/Home';
 
 
@@ -19,6 +20,7 @@ const RoutingPage = () => {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/user' element={<UserElement></UserElement>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/validation' element={<ValidationForm></ValidationForm>}></Route>
         <Route path='/login-page' element={<LoginPage></LoginPage>}></Route>
         <Route path='/movielist' element={<MovieData></MovieData>}></Route>
         <Route path='/pageupdate' element={<UpdateInAction></UpdateInAction>}></Route>

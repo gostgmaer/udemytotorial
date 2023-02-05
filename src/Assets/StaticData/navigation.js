@@ -47,4 +47,10 @@ export const navigation = [
     url: "/movielist",
     image: "http://dummyimage.com/250x.png/ff4444/ffffff",
   },
+  {
+    id: 8,
+    name: "Form Validation",
+    url: "/validation",
+    image: "http://dummyimage.com/250x.png/ff4444/ffffff",
+  },
 ];

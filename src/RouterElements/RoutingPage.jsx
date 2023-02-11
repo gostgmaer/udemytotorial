@@ -4,6 +4,7 @@ import AssignmentExpense from '../Componets/AssignmentTwo/AssignmentExpense';
 import Login from '../Componets/Login/Login';
 import LoginPage from '../Componets/Login/Login/Login';
 import MovieData from '../Componets/MovieData/MovieData';
+import ReduxCounter from '../Componets/ReduxCounter/ReduxCounter';
 import Simple from '../Componets/Simple';
 import Expenses from '../Componets/SimpleExpalses/Expenses';
 import UpdateInAction from '../Componets/UpdateInAction/UpdateInAction';
@@ -24,6 +25,7 @@ const RoutingPage = () => {
         <Route path='/login-page' element={<LoginPage></LoginPage>}></Route>
         <Route path='/movielist' element={<MovieData></MovieData>}></Route>
         <Route path='/pageupdate' element={<UpdateInAction></UpdateInAction>}></Route>
+        <Route path='/redux-counter' element={<ReduxCounter></ReduxCounter>}></Route>
         <Route path='/new-expense' element={<AssignmentExpense></AssignmentExpense>}></Route>
     </Routes>
   )

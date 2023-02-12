@@ -1,7 +1,7 @@
 import classes from './CartItem.module.css';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { counterActions } from '../Redux/Cartreducer';
+import { cartActions } from '../Redux/Cartreducer';
 const CartItem = (item) => {
  
   const dispatch = useDispatch()
@@ -20,10 +20,10 @@ const CartItem = (item) => {
           x <span>{item.quantity}</span>
         </div>
         <div className={classes.actions}>
-          <button onClick={()=>dispatch(counterActions.removeItemFromCart(
+          <button onClick={()=>dispatch(cartActions.removeItemFromCart(
               item.id
             ))}>-</button>
-          <button onClick={()=>dispatch(counterActions.addItemToCart(
+          <button onClick={()=>dispatch(cartActions.addItemToCart(
               {
                 id: item.id,
                 name: item.name,

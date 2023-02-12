@@ -7,7 +7,7 @@ import CartItem from './CartItem';
 const Cart = (props) => {
   const cartItem = useSelector((state) => state["cart"].cartItems);
  const cartRedux = useSelector((state) => state["cart"]);
-  console.log(cartRedux);
+
   return (
     <Card className={classes.cart}>
       <h2>Your Shopping Cart</h2>

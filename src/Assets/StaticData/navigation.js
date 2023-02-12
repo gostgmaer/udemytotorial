@@ -53,4 +53,10 @@ export const navigation = [
     url: "/validation",
     image: "http://dummyimage.com/250x.png/ff4444/ffffff",
   },
+    {
+    id: 9,
+    name: "Redux Page",
+    url: "/redux-counter",
+    image: "http://dummyimage.com/250x.png/ff4444/ffffff",
+  },
 ];

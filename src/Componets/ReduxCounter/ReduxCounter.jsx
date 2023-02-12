@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { counterActions } from "../../store";
+import { counterActions } from "../../store/CounterSlice";
+
 
 
 
@@ -26,7 +27,7 @@ const ReduxCounter = () => {
           </button>
           <button
             className="btn btn-primary"
-            onClick={() => dispatch(counterActions.increase(10))}>
+            onClick={() => dispatch(counterActions.increase(5))}>
             Increase 5
           </button>
           <button

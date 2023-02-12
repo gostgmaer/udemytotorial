@@ -48,7 +48,7 @@ export const navigation = [
     image: "http://dummyimage.com/250x.png/ff4444/ffffff",
   },
   {
-    id: 8,
+    id: 11,
     name: "Form Validation",
     url: "/validation",
     image: "http://dummyimage.com/250x.png/ff4444/ffffff",
@@ -59,4 +59,10 @@ export const navigation = [
     url: "/redux-counter",
     image: "http://dummyimage.com/250x.png/ff4444/ffffff",
   },
+  {
+    id: 10,
+    name: "Shopping Cart new",
+    url: "/shopping-cart",
+    image: "http://dummyimage.com/250x.png/ff4444/ffffff",
+  }
 ];
